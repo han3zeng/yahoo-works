@@ -16,3 +16,7 @@
         1. `npm i`
         2. `npm run build`
         3. `npm run publish:customized`
+
+
+## Improvement Form-Preview
+* render all inputs from data logic
