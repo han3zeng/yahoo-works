@@ -1,4 +1,4 @@
-import validation from './validation';
+import * as validation from './validation';
 
 function debounce(fn, interval) {
   let timer;

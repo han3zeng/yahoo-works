@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import styled from 'styled-components';
 import Form from './Form';
+import Preview from './Preview';
 import { breakpoints } from '../../config';
 import { inputType } from '../../constants/index';
 
@@ -26,11 +27,11 @@ const initialState = {
     content: '',
     error: null,
   },
-  [inputType.description]: {
+  [inputType.imageUrl]: {
     content: '',
     error: null,
   },
-  [inputType.imageUrl]: {
+  [inputType.description]: {
     content: '',
     error: null,
   },
@@ -112,7 +113,9 @@ function FormSet() {
         />
       </div>
       <div className="right">
-
+        <Preview
+          data={state}
+        />
       </div>
     </Container>
   );

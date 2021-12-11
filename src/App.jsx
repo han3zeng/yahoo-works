@@ -24,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
       border: 1px solid ${(props) => props.theme.formHighlightGray};
     }
   }
+
+  h2 {
+    font-size: 24px;
+  }
 `;
 
 function App() {
