@@ -1,5 +1,6 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import styled from 'styled-components';
+import ControlGroup from './ControlGroup';
 import Form from './Form';
 import Preview from './Preview';
 import { breakpoints } from '../../config';
@@ -8,13 +9,20 @@ import { inputType } from '../../constants/index';
 const Container = styled.div`
   max-width: 800px;
   margin: 0 auto;
+`;
+
+const ContentContainer = styled.div`
+  max-width: 800px;
+  margin: 30px auto;
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   @media(max-width: ${breakpoints.maxMobile}px) {
     flex-direction: column;
   }
-  .left, .right {
-    width: 50%;
-    padding: 20px;
+  .flexItem {
+    width: 47%;
+    margin: 30px 0;
     box-sizing: border-box;
     @media(max-width: ${breakpoints.maxMobile}px) {
       width: 100%;
@@ -97,6 +105,22 @@ function reducer(state, action) {
         },
       };
     }
+    case 'reset': {
+      return initialState;
+    }
+    case 'save': {
+      if (localStorage) {
+        localStorage.setItem('formData', JSON.stringify(state));
+      }
+      return state;
+    }
+    case 'retrieve': {
+      if (localStorage) {
+        const data = localStorage.getItem('formData');
+        return JSON.parse(data);
+      }
+      return state;
+    }
     default:
       throw new Error();
   }
@@ -104,19 +128,39 @@ function reducer(state, action) {
 
 function FormSet() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [numberOfPreview, setNumberOfPreview] = useState(1);
+
+  const previews = (() => {
+    const result = [];
+    for (let i = 0; i < numberOfPreview; i += 1) {
+      const content = (
+        <div className="flexItem">
+          <Preview
+            data={state}
+          />
+        </div>
+      );
+      result.push(content);
+    }
+    return result;
+  })();
+
   return (
     <Container>
-      <div className="left">
-        <Form
-          data={state}
-          dispatch={dispatch}
-        />
-      </div>
-      <div className="right">
-        <Preview
-          data={state}
-        />
-      </div>
+      <ControlGroup
+        data={state}
+        dispatch={dispatch}
+        setNumberOfPreview={setNumberOfPreview}
+      />
+      <ContentContainer>
+        <div className="flexItem">
+          <Form
+            data={state}
+            dispatch={dispatch}
+          />
+        </div>
+        {previews}
+      </ContentContainer>
     </Container>
   );
 }

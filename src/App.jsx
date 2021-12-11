@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import FormSet from './components/form';
+import FormSet from './components/form/FormSet';
 
 const theme = {
   formGray: '#ccc',
@@ -20,8 +20,8 @@ const GlobalStyle = createGlobalStyle`
     border: 1px solid ${(props) => props.theme.formGray};
     padding: 6px 5px;
     cursor: pointer;
-    &:focus {
-      border: 1px solid ${(props) => props.theme.formHighlightGray};
+    &:hover {
+      box-shadow: 2px 2px 2px gray;
     }
   }
 

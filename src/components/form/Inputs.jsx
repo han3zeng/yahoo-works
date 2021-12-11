@@ -10,6 +10,11 @@ const Container = styled.div`
 
 const ButtonSet = styled.div`
   position: relative;
+  > button {
+    &:focus {
+      border: 1px solid ${(props) => props.theme.formHighlightGray};
+    }
+  }
 `;
 
 const DropdownMenu = styled.div`
@@ -20,6 +25,7 @@ const DropdownMenu = styled.div`
   position: absolute;
   left: 0;
   top: 110%;
+  z-index: 1;
   > div {
     padding: 6px 4px;
     &:hover {
