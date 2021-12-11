@@ -1,11 +1,35 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { _ } from '../../utils';
 
 const { debounce } = _;
 
-const InputContainer = styled.div`
+const Container = styled.div`
   margin-bottom: 10px;
+`;
+
+const ButtonSet = styled.div`
+  position: relative;
+`;
+
+const DropdownMenu = styled.div`
+  background-color: white;
+  border: 1px solid ${(props) => props.theme.formGray};
+  display: inline-block;
+  box-shadow: 2px 2px 2px gray;
+  position: absolute;
+  left: 0;
+  top: 110%;
+  > div {
+    padding: 6px 4px;
+    &:hover {
+      background-color: #f2f2f2;
+      cursor: pointer;
+    }
+  }
+`;
+
+const InputContainer = styled(Container)`
   span {
     font-size: 14px;
     white-space: nowrap;
@@ -154,11 +178,100 @@ function TextInputRaw({
   );
 }
 
-function DropDown() {
+const DropDownList = [
+  'Watch Live',
+  'Breaking News',
+  'Read More',
+];
 
+
+function DropDownRaw({
+  data,
+  dispatch,
+  id,
+}) {
+  const [ifShow, setIfShow] = useState(false);
+  const dropdownRef = useRef(null);
+  const { content, error } = data;
+
+  const buttonText = content || 'Click to Select';
+
+  const onClickHanler = (e) => {
+    e.preventDefault();
+    setIfShow((state) => !state);
+  };
+
+  useEffect(() => {
+    function onClickOutterArearHandler(e) {
+      if (e.target !== dropdownRef.current) {
+        setIfShow(false);
+      }
+    }
+    if (window) {
+      window.addEventListener('click', onClickOutterArearHandler);
+    }
+    return () => window.removeEventListener('click', onClickOutterArearHandler);
+  }, []);
+
+  useEffect(() => {
+    if (ifShow && dropdownRef) {
+      dropdownRef.current.focus();
+    } else {
+      dropdownRef.current.blur();
+    }
+  }, [ifShow]);
+
+  const dropDownBody = (() => {
+    if (!ifShow) {
+      return null;
+    }
+    const menu = DropDownList.map((text, index) => (
+      <div
+        key={text}
+        role="button"
+        tabIndex="0"
+        onKeyPress={() => {
+
+        }}
+        onClick={() => {
+          dispatch({
+            type: id,
+            payload: {
+              content: text,
+              error: null,
+            }
+          })
+        }}
+      >
+        {text}
+      </div>
+    ));
+    return (
+      <DropdownMenu>
+        {menu}
+      </DropdownMenu>
+    );
+  })();
+
+  return (
+    <Container>
+      <label>Button Text</label>
+      <ButtonSet>
+        <button
+          type="button"
+          onClick={onClickHanler}
+          ref={dropdownRef}
+        >
+          {buttonText}
+        </button>
+        {ifShow && dropDownBody}
+      </ButtonSet>
+    </Container>
+  );
 }
 
 const TextInput = React.memo(TextInputRaw);
+const DropDown = React.memo(DropDownRaw);
 
 export {
   TextInput,

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TextInput } from './Inputs';
+import { TextInput, DropDown } from './Inputs';
 
 const Fieldset = styled.fieldset`
     border: 1px solid ${(props) => props.theme.formGray};
@@ -60,7 +60,7 @@ function Form({
           text="Long title"
           data={data.longTitle}
           dispatch={dispatch}
-          maxLength={10}
+          maxLength={40}
         />
         <TextInput
           id="description"
@@ -68,13 +68,18 @@ function Form({
           type="description"
           data={data.description}
           dispatch={dispatch}
-          maxLength={20}
+          maxLength={150}
         />
         <TextInput
           id="imageUrl"
           type="url"
           text="Image URL"
           data={data.imageUrl}
+          dispatch={dispatch}
+        />
+        <DropDown
+          id="dropdown"
+          data={data.dropdown}
           dispatch={dispatch}
         />
         <TextInput

@@ -34,6 +34,10 @@ const initialState = {
     content: '',
     error: null,
   },
+  [inputType.dropdown]: {
+    content: '',
+    error: null,
+  },
   [inputType.linkOutUrl]: {
     content: '',
     error: null,
@@ -72,6 +76,16 @@ function reducer(state, action) {
         },
       };
     }
+    case inputType.dropdown: {
+      const { content, error } = action?.payload;
+      return {
+        ...state,
+        [inputType.dropdown]: {
+          content,
+          error,
+        },
+      };
+    }
     case inputType.linkOutUrl: {
       const { content, error } = action?.payload;
       return {
@@ -98,7 +112,7 @@ function FormSet() {
         />
       </div>
       <div className="right">
-        
+
       </div>
     </Container>
   );

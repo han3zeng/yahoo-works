@@ -14,6 +14,16 @@ const GlobalStyle = createGlobalStyle`
     background: white;
     padding: 10px;
   }
+  button {
+    background-color: white;
+    outline: none;
+    border: 1px solid ${(props) => props.theme.formGray};
+    padding: 6px 5px;
+    cursor: pointer;
+    &:focus {
+      border: 1px solid ${(props) => props.theme.formHighlightGray};
+    }
+  }
 `;
 
 function App() {

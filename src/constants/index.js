@@ -3,6 +3,7 @@ const inputType = Object.freeze({
   shortTitle: 'shortTitle',
   description: 'description',
   imageUrl: 'imageUrl',
+  dropdown: 'dropdown',
   linkOutUrl: 'linkOutUrl',
 });
 
