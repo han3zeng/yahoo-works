@@ -1,6 +1,8 @@
 import React from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import FormSet from './components/form/FormSet';
+import Home from './components/Home';
 
 const theme = {
   formGray: '#ccc',
@@ -25,6 +27,10 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  a {
+    color: black;
+  }
+
   h2 {
     font-size: 24px;
   }
@@ -35,7 +41,19 @@ function App() {
     <ThemeProvider
       theme={theme}
     >
-      <FormSet />
+      <BrowserRouter>
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={<Home />}
+          />
+          <Route
+            path="/form-markup"
+            element={<FormSet />}
+          />
+        </Routes>
+      </BrowserRouter>
       <GlobalStyle />
     </ThemeProvider>
   );
