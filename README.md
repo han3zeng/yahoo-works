@@ -2,24 +2,22 @@
 
 
 ## How to use it
-* Development (view the tool)
+* Development
     * run
         1. `npm i`
         2. `npm run dev`
         3. browse `localhost:3001`
-    * test
-        1. `npm i`
-        2. `npm run test`
 
-* Production (build and release)
-    * build and publish to npm cloud server
+* Production (build and run)
         1. `npm i`
         2. `npm run build`
-        3. `npm run publish:customized`
+        3. `npm run start`
+        4. browse `localhost:3001`
 
 
 ## Form-Preview
-* [requirements](https://github.com/han3zeng/yahoo-works/wiki/Form-Requirements)
+* [Requirements](https://github.com/han3zeng/yahoo-works/wiki/Form-Requirements)
+* [Original CodeSandbox](https://codesandbox.io/s/jolly-worker-f7t97?file=/src/App.js)
 
 #### Features
 
@@ -43,11 +41,16 @@
     ```
 
 * debounce for input validation
-
+* customized input style
+* customized dropdown menu
 
 #### Performance Optimization
 * To improve render performacne, each Input element of the form is optimized by React.memo. Although it may seem trivial in this case, but we may have great impact for the complex form with single uplifted data state.
 
 #### Possible Improvements
 * prop-checks
+
+## Dan's Sorting Sheet
+* [Requirements & Original CodeSandbox](https://codesandbox.io/s/kind-haibt-z5hun?file=/app.js)
+
 * render all input field through data array.

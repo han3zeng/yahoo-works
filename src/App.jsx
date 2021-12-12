@@ -1,7 +1,8 @@
 import React from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import FormSet from './components/form/FormSet';
+import FormSet from './components/Form/FormSet';
+import SortingSheet from './components/Sheet';
 import Home from './components/Home';
 
 const theme = {
@@ -51,6 +52,10 @@ function App() {
           <Route
             path="/form-markup"
             element={<FormSet />}
+          />
+          <Route
+            path="/sorting-sheet"
+            element={<SortingSheet />}
           />
         </Routes>
       </BrowserRouter>

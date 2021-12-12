@@ -4,7 +4,7 @@ import ControlGroup from './ControlGroup';
 import Form from './Form';
 import Preview from './Preview';
 import { breakpoints } from '../../config';
-import { inputType } from '../../constants/index';
+import { INPUT_TYPE } from '../../constants/index';
 
 const Container = styled.div`
   max-width: 800px;
@@ -31,23 +31,23 @@ const ContentContainer = styled.div`
 `;
 
 const initialState = {
-  [inputType.longTitle]: {
+  [INPUT_TYPE.longTitle]: {
     content: '',
     error: null,
   },
-  [inputType.imageUrl]: {
+  [INPUT_TYPE.imageUrl]: {
     content: '',
     error: null,
   },
-  [inputType.description]: {
+  [INPUT_TYPE.description]: {
     content: '',
     error: null,
   },
-  [inputType.dropdown]: {
+  [INPUT_TYPE.dropdown]: {
     content: '',
     error: null,
   },
-  [inputType.linkOutUrl]: {
+  [INPUT_TYPE.linkOutUrl]: {
     content: '',
     error: null,
   },
@@ -55,51 +55,51 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case inputType.longTitle: {
+    case INPUT_TYPE.longTitle: {
       const { content, error } = action?.payload;
       return {
         ...state,
-        [inputType.longTitle]: {
+        [INPUT_TYPE.longTitle]: {
           content,
           error,
         },
       };
     }
-    case inputType.description: {
+    case INPUT_TYPE.description: {
       const { content, error } = action?.payload;
       return {
         ...state,
-        [inputType.description]: {
+        [INPUT_TYPE.description]: {
           content,
           error,
         },
       };
     }
-    case inputType.imageUrl: {
+    case INPUT_TYPE.imageUrl: {
       const { content, error } = action?.payload;
       return {
         ...state,
-        [inputType.imageUrl]: {
+        [INPUT_TYPE.imageUrl]: {
           content,
           error,
         },
       };
     }
-    case inputType.dropdown: {
+    case INPUT_TYPE.dropdown: {
       const { content, error } = action?.payload;
       return {
         ...state,
-        [inputType.dropdown]: {
+        [INPUT_TYPE.dropdown]: {
           content,
           error,
         },
       };
     }
-    case inputType.linkOutUrl: {
+    case INPUT_TYPE.linkOutUrl: {
       const { content, error } = action?.payload;
       return {
         ...state,
-        [inputType.linkOutUrl]: {
+        [INPUT_TYPE.linkOutUrl]: {
           content,
           error,
         },

@@ -8,7 +8,8 @@ function Home() {
       <p>This is the project that includes 3 tasks for interview process.</p>
       <p>Please click on the following links to check each task.</p>
       <ul>
-        <li><Link to="/form-markup">Form and Markup</Link></li>
+        <li><Link to="/form-markup">Form and Markup (Hugo)</Link></li>
+        <li><Link to="/sorting-sheet">Sorting Sheet (Dan)</Link></li>
       </ul>
     </>
   );
