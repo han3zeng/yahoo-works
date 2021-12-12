@@ -10,6 +10,7 @@ function Home() {
       <ul>
         <li><Link to="/form-markup">Form and Markup (Hugo)</Link></li>
         <li><Link to="/sorting-sheet">Sorting Sheet (Dan)</Link></li>
+        <li><Link to="/e-commerce">E-Commerce (Paul)</Link></li>
       </ul>
     </>
   );

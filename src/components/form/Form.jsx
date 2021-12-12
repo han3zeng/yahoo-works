@@ -16,21 +16,6 @@ const Fieldset = styled.fieldset`
       display: block;
     }
 
-    input {
-      width: 100%;
-      box-sizing: border-box;
-      border: 1px solid ${(props) => props.theme.formGray};
-      padding: 6px 3px;
-      outline: none;
-      &:focus {
-        border: 1px solid ${(props) => props.theme.formHighlightGray};
-      }
-      &:invalid  {
-        border: 1px solid ${(props) => props.theme.errorRed};
-      }
-    }
-    }
-
     textarea {
       height: 100px;
       resize: none;

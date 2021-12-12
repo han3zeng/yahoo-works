@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import { SHEET_DATA } from '../../constants';
 import Content from './Content';
@@ -13,6 +13,7 @@ const Container = styled.div`
 
 const FilterArea = styled.div`
   display: inline-flex;
+  align-items: center;
   > label {
     margin-right: 10px;
   }
@@ -74,7 +75,7 @@ function Sheet() {
     setData(updatedData);
   };
 
-  const debouncedHandler = debounce(onChangeHandler, 300);
+  const debouncedHandler = useCallback(debounce(onChangeHandler, 300), []);
 
   const onRandomStart = () => {
     const Shuffle = () => {

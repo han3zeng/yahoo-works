@@ -70,4 +70,67 @@ const SHEET_DATA = [
   },
 ];
 
-export { INPUT_TYPE, SHEET_DATA };
+const TAG_MAP = Object.freeze({
+  all: 'All',
+  baby: 'Baby',
+  toy: 'Toy',
+  music: 'Music',
+  furniture: 'Furniture',
+  camping: 'Camping',
+});
+
+const GRID_DATA_BASE = [
+  {
+    title: 'Diapers Size 1 (8-14 lbs) Newborn, 198 Count - Pampers Swaddlers Disposable Baby Diapers, ONE MONTH SUPPLY (Packaging May Vary)',
+    originalPrice: 100,
+    priceAfterDiscount: 50,
+    imgUr: 'https://m.media-amazon.com/images/I/71+uRDCboVL._AC_SX679_.jpg',
+    tag: TAG_MAP.baby,
+  },
+  {
+    title: 'Baby Diapers Size 4, 140 Ct, Huggies Little Movers',
+    originalPrice: 50,
+    priceAfterDiscount: 25,
+    imgUr: 'https://m.media-amazon.com/images/I/817UOZnSGyL._AC_SX679_PIbundle-140,TopRight,0,0_SH20_.jpg',
+    tag: TAG_MAP.baby,
+  },
+  {
+    title: 'LEGO Star Wars B-Wing Starfighter (10227)',
+    originalPrice: 600,
+    priceAfterDiscount: 300,
+    imgUr: 'https://m.media-amazon.com/images/I/91LMvDDYCUL._AC_SL1500_.jpg',
+    tag: TAG_MAP.toy,
+  },
+  {
+    title: "AC/DC: Maximum Rock & Roll: The Ultimate Story of the World's Greatest Rock-and-Roll Band",
+    originalPrice: 30,
+    priceAfterDiscount: 15,
+    imgUr: 'https://images-na.ssl-images-amazon.com/images/I/41x3hlihYYL._SX318_BO1,204,203,200_.jpg',
+    tag: TAG_MAP.music,
+  },
+  {
+    title: 'Mozaic Queen Size 10-inch Cotton Twill Futon Mattress, Black',
+    originalPrice: 280,
+    priceAfterDiscount: 140,
+    imgUr: 'https://m.media-amazon.com/images/I/81aFeNSl7eL._AC_SX679_.jpg',
+    tag: TAG_MAP.furniture,
+  },
+  {
+    title: 'MOON LENCE Camping Tent 2/4/6 Person Family Tent Double Layer Outdoor Tent Waterproof Windproof Anti-UV',
+    originalPrice: 50,
+    priceAfterDiscount: 25,
+    imgUr: 'https://m.media-amazon.com/images/I/61nPipPXGbL._AC_SX679_.jpg',
+    tag: TAG_MAP.camping,
+  },
+];
+
+const GRID_DATA = (() => {
+  const result = new Array(27);
+  for (let i = 0; i < result.length; i += 1) {
+    const index = Math.floor(Math.random() * GRID_DATA_BASE.length);
+    result[i] = { ...GRID_DATA_BASE[index], id: i };
+  }
+  return result;
+})();
+
+export { INPUT_TYPE, SHEET_DATA, GRID_DATA, TAG_MAP };
