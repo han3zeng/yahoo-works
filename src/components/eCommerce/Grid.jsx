@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
+
 
 const Container = styled.div`
   display: grid;
@@ -34,17 +35,17 @@ const Title = styled.p`
 
 function Grid({
   data,
-}) {
+}, ref) {
   const content = data.map(({
     title,
     originalPrice,
     priceAfterDiscount,
     imgUr,
-    tag,
-    id
-  }) => (
+    id,
+  }, index) => (
     <Card
       key={id}
+      ref={index === 0 ? ref : null}
     >
       <img
         src={imgUr}
@@ -56,8 +57,8 @@ function Grid({
           <em>{`$${originalPrice} `}</em>
           <em>{`$${priceAfterDiscount}`}</em>
         </p>
-        <mark>萊爾富折扣 </mark>
-        <mark>直購</mark>
+        <mark>Amazon Discount</mark>
+        <mark>Buy Directly</mark>
       </InfoContainer>
     </Card>
   ));
@@ -65,7 +66,7 @@ function Grid({
     <Container>
       {content}
     </Container>
-  )
+  );
 }
 
-export default Grid;
+export default forwardRef(Grid);

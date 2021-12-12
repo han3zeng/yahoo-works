@@ -125,7 +125,7 @@ const GRID_DATA_BASE = [
 ];
 
 const GRID_DATA = (() => {
-  const result = new Array(27);
+  const result = new Array(150);
   for (let i = 0; i < result.length; i += 1) {
     const index = Math.floor(Math.random() * GRID_DATA_BASE.length);
     result[i] = { ...GRID_DATA_BASE[index], id: i };
