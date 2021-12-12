@@ -22,21 +22,27 @@
 * [requirements](https://github.com/han3zeng/yahoo-works/wiki/Form-Requirements)
 
 #### Features
+
+* Maintainable
+    * single reducer state for all input
+
 * Flexible
-    * You can just modify maxLength prop to set the maxLength for the input
+    * You can just modify maxLength prop to set the maxLength for the input.
 
-```js
+    ```js
 
-<TextInput
-  id="longTitle"
-  type="text"
-  text="Long title"
-  data={data.longTitle}
-  dispatch={dispatch}
-  maxLength={40}
-/>
+    <TextInput
+      id="longTitle"
+      type="text"
+      text="Long title"
+      data={data.longTitle}
+      dispatch={dispatch}
+      maxLength={40}
+    />
 
-```
+    ```
+
+* debounce for input validation
 
 
 #### Performance Optimization
