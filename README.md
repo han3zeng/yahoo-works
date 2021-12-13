@@ -25,7 +25,8 @@
 ## Site Map
 * localhost:3001
     * /form-markup
-    * /
+    * /sorting-sheet
+    * /e-commerce
 
 ## Form-Preview (Hugo)
 * [Requirements](https://github.com/han3zeng/yahoo-works/wiki/Form-Requirements)
@@ -33,13 +34,13 @@
 
 #### Features
 
-* Implemented all requirements.
+* Implemented all requirements
 * Maintainable
-    * single reducer state for all inputs
+    * Create single reducer state for all inputs
 
 * Flexible
     * You can just specify maxLength prop to enable max-length validation mechanism.
-    * Specify type to `url` to enable url validation.
+    * Specify type to `url` to enable url validation
 
     ```js
 
@@ -77,7 +78,7 @@
 * customized dropdown menu
 
 #### Performance Optimization
-* To improve render performance, each Input element of the form is optimized by React.memo. Although it may seem trivial in this case, but we may have great impact for the complex form with single uplifted data-state.
+* To improve render performance, each Input element of the form is optimized by React.memo. Although it may seems trivial in this case, but we may have great impact for the complex form with single uplifted data-state.
 
 
 ## Sorting Sheet (Dan)
@@ -97,6 +98,12 @@
 #### Features
 * Name Search Filter
 * Tag Filter
-    * Each card has only one unique tag
+    * Each card has only one unique tag.
 * Infinite Scroll to Load More
 * Responsive Design
+
+
+
+## To Do
+* type checks
+* testing
