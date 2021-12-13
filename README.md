@@ -17,7 +17,7 @@
 ## Architecture
 * webpack
 * client-side rendering
-* clinet routing (react-router)
+* client routing (react-router)
 * node server
 * react framework
 * styled-component
@@ -105,5 +105,5 @@
 
 
 ## To Do
-* type checks
-* testing
+* [ ] type checks
+* [ ] testing
