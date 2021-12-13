@@ -8,6 +8,9 @@ const Container = styled.div`
   margin-top: 80px;
   gap: 2em 1em;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  em {
+    font-style: inherit;
+  }
 `;
 
 const Card = styled.div`
@@ -33,6 +36,37 @@ const Title = styled.p`
   -webkit-box-orient: vertical;
 `;
 
+const Prices = styled.p`
+  > em:first-child {
+    color: #B12704;
+  }
+  > em:last-child {
+    text-decoration: line-through;
+    color: #5659;
+  }
+`;
+
+const Marks = styled.div`
+  display: flex;
+  font-size: 12px;
+  mark {
+    padding: 2px 4px;
+    box-sizing: border-box;
+    height: 18px;
+    display: inline-block;
+  }
+  mark:first-of-type {
+    background-color: #232F3E;
+    color: white;
+    margin-right: 10px;
+  }
+  mark:last-of-type {
+    background-color: transparent;
+    color: #5659;
+    border: 1px solid #5659;
+  }
+`;
+
 function Grid({
   data,
 }, ref) {
@@ -53,12 +87,14 @@ function Grid({
       />
       <InfoContainer>
         <Title>{title}</Title>
-        <p>
+        <Prices>
           <em>{`$${originalPrice} `}</em>
           <em>{`$${priceAfterDiscount}`}</em>
-        </p>
-        <mark>Amazon Discount</mark>
-        <mark>Buy Directly</mark>
+        </Prices>
+        <Marks>
+          <mark>Price</mark>
+          <mark>Was</mark>
+        </Marks>
       </InfoContainer>
     </Card>
   ));
