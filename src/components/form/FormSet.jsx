@@ -134,7 +134,10 @@ function FormSet() {
     const result = [];
     for (let i = 0; i < numberOfPreview; i += 1) {
       const content = (
-        <div className="flexItem">
+        <div
+          key={i}
+          className="flexItem"
+        >
           <Preview
             data={state}
           />
