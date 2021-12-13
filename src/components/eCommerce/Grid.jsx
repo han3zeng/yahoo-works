@@ -16,9 +16,19 @@ const Container = styled.div`
 const Card = styled.div`
   border: 1px solid ${(props) => props.theme.formGray};
   padding-bottom: 15px;
+`;
+
+const ImageWrapper = styled.div`
+  position: relative;
+  padding-top: 100%;
   > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
-    aspect-ratio: 1;
+    height: 100%;
     object-fit: cover;
   }
 `;
@@ -81,10 +91,12 @@ function Grid({
       key={id}
       ref={index === 0 ? ref : null}
     >
-      <img
-        src={imgUr}
-        alt='product'
-      />
+      <ImageWrapper>
+        <img
+          src={imgUr}
+          alt='product'
+        />
+      </ImageWrapper>
       <InfoContainer>
         <Title>{title}</Title>
         <Prices>
