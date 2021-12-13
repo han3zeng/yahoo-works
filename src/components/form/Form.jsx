@@ -61,6 +61,7 @@ function Form({
           text="Image URL"
           data={data.imageUrl}
           dispatch={dispatch}
+          placeholder={'https://www.example.com'}
         />
         <DropDown
           id="dropdown"
@@ -73,6 +74,7 @@ function Form({
           text="Link URL"
           data={data.linkOutUrl}
           dispatch={dispatch}
+          placeholder={'https://www.example.com'}
         />
       </Fieldset>
     </form>

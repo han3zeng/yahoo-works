@@ -120,7 +120,8 @@ function TextInputRaw({
   text,
   data,
   dispatch,
-  maxLength
+  maxLength,
+  placeholder,
 }) {
   if (!data) {
     return null;
@@ -165,6 +166,7 @@ function TextInputRaw({
         id={id}
         value={content}
         onChange={onChangeHandler}
+        placeholder={placeholder || undefined}
       />
     );
   })();
